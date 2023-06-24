@@ -17,24 +17,25 @@ exchange:
       trading-api: ${TRADING_API:http://localhost:8001}
       trading-engine-api: ${TRADING_ENGINE_API:http://localhost:8002}
 
-  # risk-control (See RiskControlService):
+  # 风控(See RiskControlService):
   risk-control:
     #
+    # 时长配置，格式：标准ISO-8601 Period格式。示例：
     #
-    # P1D = 1day
-    # P2DT10H = 2day10hours
-    # PT2H30M = 2hours30mins
-    # PT60S = 60seconds
+    # P1D = 1天
+    # P2DT10H = 2天10小时
+    # PT2H30M = 2小时30分
+    # PT60S = 60秒
     #
-    # notify-message-expires(60 seconds):
+    # 通知消息失效时间(60秒):
     notify-message-expires: ${NOTIFY_MESSAGE_EXPIRES:PT60S}
-    # transfer-out-message-expires(7days):
+    # 转出消息失效时间(7天):
     transfer-out-message-expires: ${TRANSFER_OUT_MESSAGE_EXPIRES:P7D}
   setting:
     scheduler:
       cron:
         reload-trading-metadata: ${CRON_RELOAD_TRADING_METADATA:0 */10 * * * *}
-        # update every 10 seconds-price:
+        # 每10秒钟刷新一次latest-price:
         update-latest-price: ${CRON_UPDATE_LATEST_PRICE:0,10,20,30,40,50 * * * * *}
       fixed-delay:
         flush-orderbook: ${FIXED_DELAY_FLUSH_ORDERBOOK:500}
@@ -42,12 +43,12 @@ exchange:
         # deprecated:
         reload-trading-metadata: ${FIXED_DELAY_RELOAD_TRADING_METADATA:600000}
         save-sequence-id: ${FIXED_DELAY_SAVE_SEQUENCE_ID:60000}
-    # exchange timezone，default is ZoneId.systemDefault():
+    # 交易所时区，默认为ZoneId.systemDefault():
     timezone: ${EXCHANGE_TIMEZONE:}
     # global 32-random-bytes as AES key:
-    # global 32 random ASCII characters as AES key:
+    # 全局32个随机ASCII字符作为AES key:
     aes-key: ${EXCHANGE_AES_KEY:CryptoExchangeAESRandomSecureKey}
-    # sub-system endpoint setting:
+    # 子系统的endpoint设置:
     endpoint:
       ui: ${UI_ENDPOINT:http://localhost:8000}
       meta-api: ${META_API_ENDPOINT:http://localhost:8001}
