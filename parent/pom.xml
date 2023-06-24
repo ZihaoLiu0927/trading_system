@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0</version>
+		<version>3.1.1</version>
 	</parent>
 
 	<properties>
@@ -23,7 +23,7 @@
 
 		<!-- artifact version -->
 		<pebble.version>3.2.0</pebble.version>
-		<springcloud.version>2022.0.0</springcloud.version>
+		<springcloud.version>2022.0.3</springcloud.version>
 		<springdoc.version>2.0.0</springdoc.version>
 		<vertx.version>4.3.1</vertx.version>
 	</properties>
